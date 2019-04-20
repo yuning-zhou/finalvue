@@ -1,11 +1,14 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+const cors = require('cors'); // allows cross-port communications
 const morgan = require('morgan');
+const path = require('path');
+//const mongoose = require('mongoose');
 
+// middleware
 const app = express();
-app.use(morgan('combined'));
+app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -20,6 +23,10 @@ app.post('/register', (req, res) => {
         message:`Welcome ${req.body.email}!`
     })
 })
+
+const post = require(path.join(__dirname, '../routes', 'api', 'posts'));
+
+app.use('/movies/add', post);
 
 
 let port = process.env.PORT || 5050;
