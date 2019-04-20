@@ -15,6 +15,13 @@ app.get('/', (req, res) => {
     })
 })
 
+app.post('/register', (req, res) => {
+    res.send({
+        message:`Welcome ${req.body.email}!`
+    })
+})
+
+
 let port = process.env.PORT || 5050;
 
 app.listen((port), console.log(`Server started on port ${port}...`));
