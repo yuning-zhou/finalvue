@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors'); // allows cross-port communications
 const morgan = require('morgan');
 const path = require('path');
+require('./db');
 //const mongoose = require('mongoose');
 
 // middleware
